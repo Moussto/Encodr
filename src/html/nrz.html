@@ -1,0 +1,35 @@
+<h1>Encodage NRZ</h1>
+
+<h2><strong>Codage</strong></h2>
+
+<p>
+<span style="color:rgb(37, 37, 37); font-family:sans-serif; font-size:14px">e codage est &agrave; deux &eacute;tats&nbsp;: le signal se trouve dans un &eacute;tat (par exemple &agrave; l&rsquo;&eacute;tat haut) lorsque des 1 logiques sont transmis, et dans l&#39;autre &eacute;tat (&agrave; l&rsquo;&eacute;tat bas dans l&#39;exemple) lorsque des 0 logiques sont transmis. Ces deux&nbsp;</span><em>&eacute;tats</em><span style="color:rgb(37, 37, 37); font-family:sans-serif; font-size:14px">&nbsp;correspondent &agrave; deux&nbsp;</span><em>niveaux de tension</em><span style="color:rgb(37, 37, 37); font-family:sans-serif; font-size:14px">&nbsp;sym&eacute;triques par rapport &agrave; 0.</span>
+</p>
+
+<p>
+<font color="#252525" face="sans-serif"><span style="font-size:14px; line-height:22.4px">0 -&gt; tension negative</span></font>
+</p>
+
+<p>
+<font color="#252525" face="sans-serif"><span style="font-size:14px; line-height:22.4px">1-&gt; tension positive</span></font>
+</p>
+
+<p>
+<img alt="" src="./images/nrz.png" />
+</p>
+
+<h2><strong>Utilisat</strong><strong style="line-height:1.6">ion</strong></h2>
+
+<p>
+Le codage NRZ est souvent utilis&eacute; entre l&rsquo;ordinateur et ses p&eacute;riph&eacute;riques, par exemple par&nbsp;<a class="mw-redirect" href="https://fr.wikipedia.org/wiki/V.24" style="text-decoration: none; color: rgb(11, 0, 128); background: none;" title="V.24">V.24</a>, ou par la liaison s&eacute;rie&nbsp;<a href="https://fr.wikipedia.org/wiki/RS-232" style="text-decoration: none; color: rgb(11, 0, 128); background: none;" title="RS-232">RS-232</a>.
+</p>
+
+<h2><strong>Avantages :&nbsp;</strong></h2>
+
+<h2><span style="color:rgb(37, 37, 37); font-family:sans-serif; font-size:14px">Ce codage est tr&egrave;s facile &agrave; mettre en &oelig;uvre.</span></h2>
+
+<h2><span style="font-size:20px"><strong><span style="color:rgb(37, 37, 37); font-family:sans-serif">Inconvenients</span></strong></span></h2>
+
+<p>
+Il n&rsquo;a pas de transition g&eacute;n&eacute;r&eacute;e lors d&rsquo;une longue s&eacute;quence de 1 ou 0, ce qui rend la synchronisation difficile, voire impossible. Dans l&rsquo;exemple ci-dessous, combien de 0 doivent &ecirc;tre transmis&nbsp;? Pour cette raison, le<a href="https://fr.wikipedia.org/wiki/Codage_Manchester" style="text-decoration: none; color: rgb(11, 0, 128); background: none;" title="Codage Manchester">codage Manchester</a>&nbsp;est pr&eacute;f&eacute;r&eacute; dans les cas o&ugrave; le flux &agrave; coder peut contenir de longues s&eacute;quences de 0 ou 1 contigu&euml;s comme sur un r&eacute;seau&nbsp;<a href="https://fr.wikipedia.org/wiki/Ethernet" style="text-decoration: none; color: rgb(11, 0, 128); background: none;" title="Ethernet">ethernet</a>. Sur le&nbsp;<a class="mw-redirect" href="https://fr.wikipedia.org/wiki/Controller_area_network" style="text-decoration: none; color: rgb(11, 0, 128); background: none;" title="Controller area network">bus CAN</a>, on utilise la m&eacute;thode du &laquo;&nbsp;bit stuffing&nbsp;&raquo; (on change d&rsquo;&eacute;tat au bout de 5 bits identiques cons&eacute;cutifs).
+</p>
