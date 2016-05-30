@@ -58,8 +58,8 @@ public class LineChartSample extends Application {
         final NumberAxis yAxis = new NumberAxis();
         yAxis.setLabel("Voltage");
         //creating the chart
-        final LineChart<Number,Number> lineChart =
-                new LineChart<Number,Number>(xAxis,yAxis);
+        final LineChart<Number,Number> lineChart;
+        lineChart = new LineChart<>(xAxis,yAxis);
 
         //lineChart.setTitle("Stock Monitoring, 2010");
         //defining a series
