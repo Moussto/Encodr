@@ -9,37 +9,52 @@ import Model.VoltageState;
 import javafx.scene.chart.XYChart;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by falcon on 5/30/16.
  */
-public class VoltageChart extends LineChart<Integer, Integer> {
+public class VoltageChart extends LineChart<Double, Integer> {
 
-    private ArrayList<ArrayList<VoltageState>> stateSeries;
+    protected ArrayList<ArrayList<VoltageState>> stateSeries;
+    float step;
 
-    public VoltageChart(@NamedArg("xAxis") Axis<Integer> integerAxis, @NamedArg("yAxis") Axis<Integer> integerAxis2) {
-        super(integerAxis, integerAxis2);
+    public VoltageChart(@NamedArg("xAxis") Axis<Double> floatAxis, @NamedArg("yAxis") Axis<Integer> integerAxis2, float step) {
+        super(floatAxis, integerAxis2);
+        this.step = step;
         stateSeries = new ArrayList<>();
     }
 
-    private XYChart.Series getSerieFromStates(ArrayList<VoltageState> states) {
+    protected XYChart.Series getSerieFromStates(ArrayList<VoltageState> states) {
         XYChart.Series serie = new XYChart.Series<>();
+        float xValue = step;
+        for(int i = 1; i <= states.size(); ++i) {
+            if(states.get(i-1) == VoltageState.DOWN) {
+                serie.getData().add(new XYChart.Data(xValue - step, -1));
+                serie.getData().add(new XYChart.Data(xValue, -1));
+            } else if (states.get(i-1) == VoltageState.MIDDLE) {
+                serie.getData().add(new XYChart.Data(xValue - step, 0));
+                serie.getData().add(new XYChart.Data(xValue, 0));
+            }else if (states.get(i-1) == VoltageState.UP) {
+                serie.getData().add(new XYChart.Data(xValue - step, 1));
+                serie.getData().add(new XYChart.Data(xValue, 1));
+            }
 
+            xValue += step;
+        }
         return serie;
     }
 
-    private void updateChart() {
-        ObservableList<Series<Integer, Integer>> data = getData();
+    public void updateChart() {
+        ObservableList<Series<Double, Integer>> data = getData();
         data.clear();
 
         for(ArrayList<VoltageState> list : stateSeries) {
-
+            data.add(getSerieFromStates(list));
         }
     }
 
     public void addSerie(ArrayList<VoltageState> list) {
-        stateSeries.add(list);
+        stateSeries.add((ArrayList<VoltageState>) list.clone());
     }
 
     public ArrayList<ArrayList<VoltageState>> getVoltageState() {
