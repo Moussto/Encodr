@@ -1,4 +1,4 @@
-package Module;
+package Vue;
 
 import javafx.beans.NamedArg;
 import javafx.collections.ObservableList;

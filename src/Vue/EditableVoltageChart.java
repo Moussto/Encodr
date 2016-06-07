@@ -1,4 +1,4 @@
-package Module;
+package Vue;
 
 import Model.VoltageState;
 import javafx.beans.NamedArg;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by falcon on 6/6/16.
  */
-public class EditableVoltageChart extends VoltageChart{
+public class EditableVoltageChart extends VoltageChart {
     public EditableVoltageChart(@NamedArg("xAxis") Axis<Double> floatAxis, @NamedArg("yAxis") Axis<Integer> integerAxis2, float step) {
         super(floatAxis, integerAxis2, step);
         setAnimated(false);
