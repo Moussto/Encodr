@@ -34,7 +34,7 @@ public class QCMManager {
         }
     }
 
-    public List<QCM> getQCMAbout(List<CodageType> codageType) {
+    public static List<QCM> getQCMAbout(List<CodageType> codageType) {
         if(container.qcm == null) {
             loadQuestions();
         }

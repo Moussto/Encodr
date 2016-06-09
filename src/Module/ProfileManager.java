@@ -2,54 +2,41 @@ package Module;
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
- * Created by falcon on 5/23/16.
+ * Created by falcon on 6/9/16.
  */
-public class Profil implements Serializable {
-    private String email;
-    private Map<Integer, Integer> mapCourCompletion;
 
-    //element de gameification
-    private int experience;
+public class ProfileManager implements Serializable {
+    private static String saveFilename = "profiles.prf";
+    private static HashMap<String, Profil> profiles = load(saveFilename);
 
-    Profil(String email) {
-        this.email = email;
-        mapCourCompletion = new HashMap<>();
+    public static HashMap<String, Profil> getProfiles() {
+        return profiles;
     }
 
-    public String getEmail() {
-        return email;
+    public static Profil getProfile(String login) {
+        if(profiles == null) {
+            profiles = new HashMap<>();
+            return null;
+        }
+        return profiles.get(login);
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public static void addProfile(Profil profil) {
+        if(profiles == null) {
+            profiles = new HashMap<>();
+        }
+        profiles.put(profil.getEmail(), profil);
     }
 
-    public Map<Integer, Integer> getMapCourCompletion() {
-        return mapCourCompletion;
-    }
-
-    public void setMapCourCompletion(Map<Integer, Integer> mapCourCompletion) {
-        this.mapCourCompletion = mapCourCompletion;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
-    }
-
-    public void save(String filename) {
+    public static void save(String filename) {
         ObjectOutputStream oos = null;
 
         try {
             final FileOutputStream file = new FileOutputStream(filename);
             oos = new ObjectOutputStream(file);
-            oos.writeObject(this);
+            oos.writeObject(profiles);
         } catch (final java.io.IOException e) {
             e.printStackTrace();
         } finally {
@@ -64,14 +51,14 @@ public class Profil implements Serializable {
         }
     }
 
-    private static Profil load(String filename) {
+    private static HashMap<String, Profil> load(String filename) {
         ObjectInputStream ois = null;
-        Profil profil = null;
+        profiles = null;
 
         try {
             final FileInputStream file = new FileInputStream(filename);
             ois = new ObjectInputStream(file);
-            profil = (Profil) ois.readObject();
+            profiles = (HashMap<String, Profil>) ois.readObject();
         } catch (final java.io.IOException e) {
             e.printStackTrace();
         } catch (final ClassNotFoundException e) {
@@ -85,6 +72,6 @@ public class Profil implements Serializable {
                 ex.printStackTrace();
             }
         }
-        return profil;
+        return profiles;
     }
 }
