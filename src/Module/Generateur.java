@@ -5,6 +5,8 @@
  */
 package Module;
 
+import Model.VoltageState;
+
 import java.util.ArrayList;
 
 /**
@@ -33,6 +35,21 @@ public class Generateur {
 
 
     public Generateur() {
+    }
+
+
+    public static ArrayList<VoltageState> StringtoEnum(String in) {
+        ArrayList<VoltageState> res = new ArrayList<>();
+        String[] tokens = in.split("-");
+        for (int i = 0; i < tokens.length; i++) {
+            if (tokens[i].equals("UP")) res.add(VoltageState.UP);
+            if (tokens[i].equals("DOWN")) res.add(VoltageState.DOWN);
+            if (tokens[i].equals("MIDDLE")) res.add(VoltageState.MIDDLE);
+            if (tokens[i].equals("NONE")) res.add(VoltageState.NONE);
+
+        }
+
+        return res;
     }
 
     public static String ArraytoString(ArrayList<String> array) {
@@ -133,6 +150,17 @@ public class Generateur {
         if (technique.equals("BIPOLAR")) return BiPol(input);
         if (technique.equals("MANCHESTER")) return Manchester(input);
         return NRZ(input);
+    }
+
+    public static ArrayList<VoltageState> Encode2With(String input, String technique) {
+        switch (technique){
+            case "NRZ": return StringtoEnum(NRZ(input));
+            case "NRZI": return StringtoEnum(NRZi(input));
+            case "BIPOLAR":return StringtoEnum(BiPol(input));
+            case "MANCHESTER":return StringtoEnum(Manchester(input));
+            default:return StringtoEnum(NRZ(input));
+
+        }
     }
 
 }

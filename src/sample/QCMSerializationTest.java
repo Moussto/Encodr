@@ -67,7 +67,7 @@ public class QCMSerializationTest {
         mapQCM.put(sujet1, qcmList);
         mapQCM.put(sujet2, qcmList2);
 
-        QCMManager.init();
+       // QCMManager.init();
         QCMManager.setQcm(mapQCM);
         QCMManager.saveQuestions();
     }

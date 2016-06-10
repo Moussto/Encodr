@@ -1,5 +1,6 @@
 package GUI.controllers;
 
+import Exercise.DecodingExercise;
 import Exercise.EncodingExercise;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,11 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -91,19 +89,19 @@ public class ControllerExercise implements Initializable {
         secondpane.getChildren().clear();
         Button Ex1 = new Button("Exercice de decodage de signal "+selected);
         Ex1.setOnAction(eventbut -> {
-            new EncodingExercise(selected);
+            new DecodingExercise(selected);
         });
 
         Button Ex2 = new Button("Exercice d'encodage "+selected);
         Ex2.setOnAction(eventbut -> {
-            // appel de ton exercice lucas
+            new EncodingExercise(selected);
         });
         Button Ex3 = new Button("QCM Sur "+selected);
         Ex3.setOnAction(eventbut -> {
             // appel du QCM
         });
+        secondpane.getChildren().add(Ex1);
         secondpane.getChildren().add(Ex3);
         secondpane.getChildren().add(Ex2);
-        secondpane.getChildren().add(Ex1);
     }
 }
