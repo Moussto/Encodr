@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ControllerExercise">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="557.0" minHeight="537.0" prefHeight="544.0" />
+    </rowConstraints>
+    <children>
+        <Pane prefHeight="544.0" prefWidth="629.0" GridPane.rowIndex="1">
+         <children>
+            <SplitPane dividerPositions="0.2902711323763955" layoutY="1.0" prefHeight="544.0" prefWidth="629.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="573.0" prefWidth="179.0">
+                     <children>
+                        <ListView fx:id="ListCourse" layoutX="-35.0" prefHeight="542.0" prefWidth="179.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="540.0">
+                     <children>
+                        <Pane fx:id="secondpane" layoutX="111.0" layoutY="49.0" prefHeight="542.0" prefWidth="442.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+              </items>
+            </SplitPane>
+         </children></Pane>
+      <Pane prefHeight="29.0" prefWidth="629.0">
+         <children>
+            <Button fx:id="retourbutton" layoutX="14.0" layoutY="4.0" mnemonicParsing="false" text="Retour" />
+         </children>
+      </Pane>
+    </children>
+</GridPane>

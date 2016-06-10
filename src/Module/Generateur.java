@@ -52,7 +52,7 @@ public class Generateur {
 
     // Non Return To ZEro
     //0-> negative | 1 -> positive
-    public String NRZ(String input) {
+    public static String NRZ(String input) {
         String output = "";
         for (int i = 0; i < input.length(); i++) {
             if ((Character.toString(input.charAt(i))).equals("1")) {
@@ -107,17 +107,17 @@ public class Generateur {
         for (int i = 0; i < input.length(); i++) {
             if ((Character.toString(input.charAt(i))).equals("1")) {
                 String before = out.get(out.size() - 1);
-                if(before.equals("UP")){
+                if (before.equals("UP")) {
                     out.add("DOWN");
-                }else{
+                } else {
                     out.add("UP");
                 }
                 out.add("UP");
             } else {
                 String before = out.get(out.size() - 1);
-                if(before.equals("DOWN")){
+                if (before.equals("DOWN")) {
                     out.add("UP");
-                }else{
+                } else {
                     out.add("DOWN");
                 }
                 out.add("DOWN");
@@ -127,6 +127,13 @@ public class Generateur {
         return output;
     }
 
+    public static String EncodeWith(String input, String technique) {
+        if (technique.equals("NRZ")) return NRZ(input);
+        if (technique.equals("NRZI")) return NRZi(input);
+        if (technique.equals("BIPOLAR")) return BiPol(input);
+        if (technique.equals("MANCHESTER")) return Manchester(input);
+        return NRZ(input);
+    }
 
 }
 

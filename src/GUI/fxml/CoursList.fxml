@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.web.WebView?>
+
+<GridPane alignment="center" hgap="10" maxHeight="Infinity" maxWidth="Infinity" prefHeight="541.0" prefWidth="693.0" vgap="10" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ControllerCoursList">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="246.0" minHeight="0.0" prefHeight="17.0" />
+      <RowConstraints maxHeight="542.0" minHeight="285.0" prefHeight="514.0" />
+   </rowConstraints>
+   <children>
+      <SplitPane GridPane.hgrow="always" GridPane.vgrow="always"  dividerPositions="0.3333333333333333" GridPane.rowIndex="1">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="265.0">
+               <children>
+                  <ListView fx:id="ListCourse" layoutX="-5.0" prefHeight="503.0" prefWidth="225.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="475.0" prefWidth="442.0">
+               <children>
+                  <WebView fx:id="Webview" layoutX="-14.0" layoutY="-2.0" prefHeight="503.0" prefWidth="453.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Pane GridPane.hgrow="never" GridPane.vgrow="never" prefHeight="35.0" prefWidth="686.0">
+         <children>
+            <Button fx:id="retourbutton" mnemonicParsing="false" text="Retour" />
+         </children>
+      </Pane>
+   </children>
+
+</GridPane>
