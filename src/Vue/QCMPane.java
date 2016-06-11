@@ -5,7 +5,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -13,17 +12,16 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.StringJoiner;
 
 /**
  * Created by falcon on 6/11/16.
  */
-public class QCMPanel extends GridPane {
+public class QCMPane extends GridPane {
     private static int maxResponse = 5;
     private QCM qcm;
     private List<RadioButton> buttons;
 
-    public QCMPanel(QCM qcm) {
+    public QCMPane(QCM qcm) {
         super();
         buttons = new ArrayList<>();
         this.qcm = qcm;
