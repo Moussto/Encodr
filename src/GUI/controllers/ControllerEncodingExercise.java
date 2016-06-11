@@ -1,7 +1,10 @@
 package GUI.controllers;
 
+import Model.CodageType;
+import Model.VoltageState;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -11,6 +14,8 @@ import javafx.scene.layout.StackPane;
  * Created by Mouss on 11/06/2016.
  */
 public class ControllerEncodingExercise {
+
+    private String EncodingTechnique;
 
     @FXML
     private Label consigneLabel;
@@ -41,4 +46,9 @@ public class ControllerEncodingExercise {
     public StackPane getUpperpanel() {
         return subPane;
     }
+
+    public void setEncodingTechnique(String encodingTechnique) {
+        EncodingTechnique = encodingTechnique;
+    }
+
 }
