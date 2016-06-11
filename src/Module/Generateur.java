@@ -96,6 +96,7 @@ public class Generateur {
                 out.add(inverse(before));
             }
         }
+        out.remove(out.size()-1);
         String output = ArraytoString(out);
         return output;
     }

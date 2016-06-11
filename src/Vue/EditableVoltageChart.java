@@ -2,7 +2,9 @@ package Vue;
 
 import Model.VoltageState;
 import javafx.beans.NamedArg;
+import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.chart.Axis;
 import javafx.scene.input.MouseEvent;
@@ -13,11 +15,14 @@ import java.util.ArrayList;
  * Created by falcon on 6/6/16.
  */
 public class EditableVoltageChart extends VoltageChart {
+
+    public final Node chartBackground = this.lookup(".chart-plot-background");
+
     public EditableVoltageChart(@NamedArg("xAxis") Axis<Double> floatAxis, @NamedArg("yAxis") Axis<Integer> integerAxis2, float step) {
         super(floatAxis, integerAxis2, step);
         setAnimated(false);
 
-        final Node chartBackground = this.lookup(".chart-plot-background");
+
 
         chartBackground.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override public void handle(MouseEvent mouseEvent) {
@@ -25,6 +30,8 @@ public class EditableVoltageChart extends VoltageChart {
                 processMouseClick(xVal);
             }
         });
+
+      //  chartBackground.setOnMouseEntered(event -> getStage().getScene().setCursor(Cursor.HAND));
     }
 
     @Override
@@ -66,5 +73,9 @@ public class EditableVoltageChart extends VoltageChart {
         if(stateSeries.isEmpty())
             return new ArrayList<>();
         return (ArrayList<VoltageState>) stateSeries.get(0).clone();
+    }
+
+    public Node getChartBackground() {
+        return chartBackground;
     }
 }

@@ -1,5 +1,6 @@
 package Exercise;
 
+import Model.CodageType;
 import Module.Generateur;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
@@ -15,6 +16,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 import static java.lang.System.exit;
 
@@ -54,6 +57,16 @@ public class DecodingExercise {
         series2.setName("Incorrect");
         lineChart.getData().add(series2);
         lineChart.getData().add(series);
+
+        String secondanalysis = checkotherCoding(inputuser);
+
+        if (!secondanalysis.equals("NONE")){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Correct Exercice");
+            alert.setContentText("Attention vous avez utilisé l'encodage "+secondanalysis+" pour decoder ce signal !\nIl faut utiliser "+EncodingTechnique );
+            alert.showAndWait();
+
+        }
 
 
     }
@@ -142,13 +155,12 @@ public class DecodingExercise {
 
         notification.clear();
 
-        //0110001011
-        //String test = "1111010101";
-        String test = "";
-        for (int i = 0; i < 10; i++) {
+        String test = "1";
+        for (int i = 1; i < 10; i++) {
             test += (Math.random() < 0.5) ? 0 : 1;
         }
         sequence = test;
+         System.out.println(sequence);
         //DrawMonoClock(test, series);
         DrawMonoClockFromX(test, series, 0);
         lineChart.getData().add(series);
@@ -228,6 +240,20 @@ public class DecodingExercise {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public String checkotherCoding(String text){
+        for (CodageType a : CodageType.values()){
+            if(!a.equals(EncodingTechnique)){
+                String one = Generateur.EncodeWith(text, a.toString());
+                String two = Generateur.EncodeWith(sequence,EncodingTechnique);
+                if(one.equals(two)){
+                    return a.toString();
+                }
+            }
+        }
+        return "NONE";
+
     }
 
 
