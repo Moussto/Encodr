@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.layout.StackPane?>
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.60"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ControllerEncodingExercise">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+    </rowConstraints>
+    <children>
+        <SplitPane dividerPositions="0.8080614203454894" orientation="VERTICAL" prefHeight="540.0" prefWidth="664.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" fx:id="upperpanel">
+                    <StackPane fx:id="subPane" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" ></StackPane>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="14.0" prefWidth="623.0">
+                    <children>
+                        <Label fx:id="consigneLabel" layoutX="286.0" layoutY="14.0" text="Consigne_here"/>
+                        <Button fx:id="validatebutton" layoutX="550.0" layoutY="61.0" mnemonicParsing="false"
+                                prefHeight="25.0" prefWidth="66.0" text="Valider"/>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</GridPane>

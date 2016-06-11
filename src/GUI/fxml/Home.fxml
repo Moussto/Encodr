@@ -7,23 +7,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/null"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ControllerHome">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.ControllerHome">
     <columnConstraints>
-        <ColumnConstraints/>
+        <ColumnConstraints />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints/>
+        <RowConstraints />
     </rowConstraints>
     <children>
         <Pane prefHeight="439.0" prefWidth="591.0">
             <children>
-                <Label fx:id="labelHome" layoutX="266.0" layoutY="14.0" text="Login"/>
-                <Button fx:id="coursbutton" layoutX="69.0" layoutY="56.0" mnemonicParsing="false" prefHeight="116.0"
-                        prefWidth="197.0" text="Cours">
+                <Label fx:id="labelHome" layoutX="266.0" layoutY="14.0" text="Login" />
+                <Button fx:id="coursbutton" layoutX="69.0" layoutY="56.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Cours">
                 </Button>
-                <Button fx:id="exercisebutton" layoutX="316.0" layoutY="56.0" mnemonicParsing="false" prefHeight="116.0"
-                        prefWidth="197.0" text="Button"/>
+                <Button fx:id="exercisebutton" layoutX="316.0" layoutY="56.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Exercices" />
+            <Button fx:id="exercisebutton1" layoutX="69.0" layoutY="237.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Exercices" />
             </children>
         </Pane>
     </children>

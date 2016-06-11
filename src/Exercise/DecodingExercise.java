@@ -167,7 +167,6 @@ public class DecodingExercise {
         final TextField inputuser = new TextField();
         inputuser.setPromptText("Veuillez traduire le signal ci-dessus");
         inputuser.setPrefWidth(300);
-        ;
         inputuser.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -230,6 +229,7 @@ public class DecodingExercise {
         stage.setScene(scene);
         stage.show();
     }
+
 
 }
 

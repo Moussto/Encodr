@@ -94,7 +94,11 @@ public class ControllerExercise implements Initializable {
 
         Button Ex2 = new Button("Exercice d'encodage "+selected);
         Ex2.setOnAction(eventbut -> {
-            new EncodingExercise(selected);
+            try {
+                new EncodingExercise(selected);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
         Button Ex3 = new Button("QCM Sur "+selected);
         Ex3.setOnAction(eventbut -> {
