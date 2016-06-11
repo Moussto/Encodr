@@ -11,12 +11,6 @@
        <void method="add">
         <object class="java.lang.Enum" id="CodageType0" method="valueOf">
          <class>Model.CodageType</class>
-         <string>NRZ</string>
-        </object>
-       </void>
-       <void method="add">
-        <object class="java.lang.Enum" id="CodageType1" method="valueOf">
-         <class>Model.CodageType</class>
          <string>NRZI</string>
         </object>
        </void>
@@ -25,27 +19,27 @@
        <void method="add">
         <object class="Model.QCM">
          <void property="indexBonneReponse">
-          <int>4</int>
+          <int>3</int>
          </void>
          <void property="question">
-          <string>Troisieme Question.</string>
+          <string>Comment code-t-on un bit 1 en NRZI ?</string>
          </void>
          <void property="reponses">
           <object class="java.util.ArrayList">
            <void method="add">
-            <string>reponse 1</string>
+            <string>Avec un voltage positif</string>
            </void>
            <void method="add">
-            <string>reponse 2</string>
+            <string>Avec un voltage negatif</string>
            </void>
            <void method="add">
-            <string>reponse 3</string>
+            <string>En gardant le meme signal que le bit précédent </string>
            </void>
            <void method="add">
-            <string>reponse 4</string>
+            <string>En forcant la transition du signal</string>
            </void>
            <void method="add">
-            <string>reponse 5</string>
+            <string>Avec un signal a 0V</string>
            </void>
           </object>
          </void>
@@ -54,6 +48,219 @@
            <void method="add">
             <object idref="CodageType0"/>
            </void>
+          </object>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="Model.QCM">
+         <void property="indexBonneReponse">
+          <int>2</int>
+         </void>
+         <void property="question">
+          <string>Comment code-t-on un bit 0 en NRZI ?</string>
+         </void>
+         <void property="reponses">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <string>Avec un voltage positif</string>
+           </void>
+           <void method="add">
+            <string>Avec un voltage negatif</string>
+           </void>
+           <void method="add">
+            <string>En gardant le meme signal que le bit précédent </string>
+           </void>
+           <void method="add">
+            <string>En forcant la transition du signal</string>
+           </void>
+           <void method="add">
+            <string>Avec un signal a 1V</string>
+           </void>
+          </object>
+         </void>
+         <void property="sujet">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <object idref="CodageType0"/>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="Model.QCM">
+         <void property="indexBonneReponse">
+          <int>0</int>
+         </void>
+         <void property="question">
+          <string>Quel est l&apos;avantage du codage NRZi ?</string>
+         </void>
+         <void property="reponses">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <string>Bonne utilisation de la bande passante</string>
+           </void>
+           <void method="add">
+            <string>Bonne gestion de l&apos;horloge</string>
+           </void>
+           <void method="add">
+            <string>Pas de probleme lorsqu&apos;il y a une longue sequence de 0 </string>
+           </void>
+           <void method="add">
+            <string>cout de synchronisation faible</string>
+           </void>
+          </object>
+         </void>
+         <void property="sujet">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <object idref="CodageType0"/>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="Model.QCM">
+         <void property="indexBonneReponse">
+          <int>2</int>
+         </void>
+         <void property="question">
+          <string>Quel est l&apos;inconvenient du codage NRZ ?</string>
+         </void>
+         <void property="reponses">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <string>Mauvaise utilisation de la bande passante</string>
+           </void>
+           <void method="add">
+            <string>Mauvaise gestion de l&apos;horloge</string>
+           </void>
+           <void method="add">
+            <string>Pas de transition lorsqu&apos;il y a une longue sequence de 0 </string>
+           </void>
+           <void method="add">
+            <string>Complexité de mise en oeuvre</string>
+           </void>
+          </object>
+         </void>
+         <void property="sujet">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <object idref="CodageType0"/>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <object class="java.lang.Enum" id="CodageType1" method="valueOf">
+         <class>Model.CodageType</class>
+         <string>NRZ</string>
+        </object>
+       </void>
+      </object>
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <object class="Model.QCM">
+         <void property="indexBonneReponse">
+          <int>2</int>
+         </void>
+         <void property="question">
+          <string>Comment code-t-on un bit 1 en NRZ ?</string>
+         </void>
+         <void property="reponses">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <string>Avec un voltage negatif</string>
+           </void>
+           <void method="add">
+            <string>En inversant la polarité du dernier 1 </string>
+           </void>
+           <void method="add">
+            <string>Avec un voltage positif</string>
+           </void>
+           <void method="add">
+            <string>Avec un Signal a 0V</string>
+           </void>
+           <void method="add">
+            <string>En forcant le front montant du signal</string>
+           </void>
+          </object>
+         </void>
+         <void property="sujet">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <object idref="CodageType1"/>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="Model.QCM">
+         <void property="indexBonneReponse">
+          <int>3</int>
+         </void>
+         <void property="question">
+          <string>Comment code-t-on un bit 0 en NRZ ?</string>
+         </void>
+         <void property="reponses">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <string>Avec un voltage positif</string>
+           </void>
+           <void method="add">
+            <string>Avec un voltage negatif</string>
+           </void>
+           <void method="add">
+            <string>En gardant le meme signal que le bit précédent </string>
+           </void>
+           <void method="add">
+            <string>Avec un signal a 0V</string>
+           </void>
+           <void method="add">
+            <string>En forcant le front montant du signal</string>
+           </void>
+          </object>
+         </void>
+         <void property="sujet">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <object idref="CodageType1"/>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="Model.QCM">
+         <void property="indexBonneReponse">
+          <int>1</int>
+         </void>
+         <void property="question">
+          <string>Quel est le plus gros inconvenient de du codage NRZ ?</string>
+         </void>
+         <void property="reponses">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <string>Compliqué a implementer</string>
+           </void>
+           <void method="add">
+            <string>Une perte de signal equivaut a une suite de bit 0</string>
+           </void>
+           <void method="add">
+            <string>Synchronisation tres couteuse</string>
+           </void>
+          </object>
+         </void>
+         <void property="sujet">
+          <object class="java.util.ArrayList">
            <void method="add">
             <object idref="CodageType1"/>
            </void>
@@ -68,7 +275,7 @@
        <void method="add">
         <object class="java.lang.Enum" id="CodageType2" method="valueOf">
          <class>Model.CodageType</class>
-         <string>MANCHESTER</string>
+         <string>BIPOLAR</string>
         </object>
        </void>
       </object>
@@ -79,27 +286,24 @@
           <int>2</int>
          </void>
          <void property="question">
-          <string>D&apos;où vient le nom du codage Manchester?</string>
+          <string>Comment code-t-on un bit 1 en Bipolaire ?</string>
          </void>
          <void property="reponses">
           <object class="java.util.ArrayList">
            <void method="add">
-            <string>42</string>
+            <string>Avec un voltage positif</string>
            </void>
            <void method="add">
-            <string>Obiwan Kenobi</string>
+            <string>Avec un voltage negatif</string>
            </void>
            <void method="add">
-            <string>De la ville</string>
+            <string>En inversant la polarité du dernier 1 </string>
            </void>
            <void method="add">
-            <string>De Monsieur Manchester</string>
+            <string>En gardant le meme signal que le bit 0 </string>
            </void>
            <void method="add">
-            <string>de Man chez Stère</string>
-           </void>
-           <void method="add">
-            <string>je n&apos;ai plus d&apos;idée...</string>
+            <string>En forcant la transition du signal vers le bas si ce n&apos;est pas le cas</string>
            </void>
           </object>
          </void>
@@ -115,27 +319,27 @@
        <void method="add">
         <object class="Model.QCM">
          <void property="indexBonneReponse">
-          <int>0</int>
+          <int>3</int>
          </void>
          <void property="question">
-          <string>Deuxieme Question.</string>
+          <string>Comment code-t-on un bit 0 en Bipolaire ?</string>
          </void>
          <void property="reponses">
           <object class="java.util.ArrayList">
            <void method="add">
-            <string>reponse 1</string>
+            <string>Avec un voltage positif</string>
            </void>
            <void method="add">
-            <string>reponse 2</string>
+            <string>En gardant le meme signal que le bit précédent </string>
            </void>
            <void method="add">
-            <string>reponse 3</string>
+            <string>En forcant la transition du signal vers le haut</string>
            </void>
            <void method="add">
-            <string>reponse 4</string>
+            <string>Avec un signal a 0V</string>
            </void>
            <void method="add">
-            <string>reponse 5</string>
+            <string>Avec un voltage negatif</string>
            </void>
           </object>
          </void>

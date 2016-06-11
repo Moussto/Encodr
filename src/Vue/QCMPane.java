@@ -2,6 +2,8 @@ package Vue;
 
 import Model.QCM;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
@@ -20,6 +22,7 @@ public class QCMPane extends GridPane {
     private static int maxResponse = 5;
     private QCM qcm;
     private List<RadioButton> buttons;
+
 
     public QCMPane(QCM qcm) {
         super();
@@ -74,6 +77,8 @@ public class QCMPane extends GridPane {
             buttons.add(button);
             index++;
         }
+
+
     }
 
     public boolean isBonneReponse() {
@@ -85,5 +90,13 @@ public class QCMPane extends GridPane {
             }
         }
         return false;
+    }
+
+    public String getRightAnswer(){
+        for(RadioButton b : buttons) {
+            if(qcm.isBonneReponse(b.getText()))
+                    return b.getText();
+        }
+        return "notfound";
     }
 }

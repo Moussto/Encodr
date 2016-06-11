@@ -2,6 +2,12 @@ package GUI.controllers;
 
 import Exercise.DecodingExercise;
 import Exercise.EncodingExercise;
+import Model.CodageType;
+import Model.QCM;
+import Model.QCMManager;
+import Module.Profil;
+import Module.ProfileManager;
+import Vue.QCMPane;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,13 +15,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -35,7 +46,7 @@ public class ControllerExercise implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         assert ListCourse != null : "fx:id=\"ListCourse\" was not injected: check your FXML file 'Exercise.fxml'.";
-        assert retourbutton!=null : "fx:id=\"retourbutton\" was not injected: check your FXML file 'Exercise.fxml'.";
+        assert retourbutton != null : "fx:id=\"retourbutton\" was not injected: check your FXML file 'Exercise.fxml'.";
         retourbutton.setOnAction(event -> {
             try {
                 handleButtonAction();
@@ -50,23 +61,23 @@ public class ControllerExercise implements Initializable {
         ListCourse.setOnMouseClicked(event -> {
             String selected = ListCourse.getSelectionModel().getSelectedItem();
             switch (selected) {
-                case "Non Return to Zero (NRZ)":{
+                case "Non Return to Zero (NRZ)": {
                     createExercise("NRZ");
                     break;
                 }
-                case "Non Return to Zero-Inversed (NRZi)":{
+                case "Non Return to Zero-Inversed (NRZi)": {
                     createExercise("NRZI");
                     break;
                 }
-                case "Bipolaire":{
+                case "Bipolaire": {
                     createExercise("BIPOLAR");
                     break;
                 }
-                case "Manchester":{
+                case "Manchester": {
                     createExercise("MANCHESTER");
                     break;
                 }
-                default:{
+                default: {
                     createExercise("NRZ");
                 }
             }
@@ -85,14 +96,14 @@ public class ControllerExercise implements Initializable {
         stage.show();
     }
 
-    private void createExercise(String selected){
+    private void createExercise(String selected) {
         secondpane.getChildren().clear();
-        Button Ex1 = new Button("Exercice de decodage de signal "+selected);
+        Button Ex1 = new Button("Exercice de decodage de signal " + selected);
         Ex1.setOnAction(eventbut -> {
             new DecodingExercise(selected);
         });
 
-        Button Ex2 = new Button("Exercice d'encodage "+selected);
+        Button Ex2 = new Button("Exercice d'encodage " + selected);
         Ex2.setOnAction(eventbut -> {
             try {
                 new EncodingExercise(selected);
@@ -100,12 +111,86 @@ public class ControllerExercise implements Initializable {
                 e.printStackTrace();
             }
         });
-        Button Ex3 = new Button("QCM Sur "+selected);
+        Button Ex3 = new Button("QCM Sur " + selected);
+
         Ex3.setOnAction(eventbut -> {
-            // appel du QCM
+            CodageType a;
+
+
+            switch (selected) {
+                case "NRZ":
+                    a = CodageType.NRZ;
+                    break;
+                case "NRZI":
+                    a = CodageType.NRZI;
+                    break;
+                case "BIPOLAR":
+                    a = CodageType.BIPOLAR;
+                    break;
+                case "MANCHESTER":
+                    a = CodageType.MANCHESTER;
+                    break;
+                default:
+                    a = CodageType.NRZ;
+
+            }
+            Button validate = new Button("Valider");
+            Stage stage2 = new Stage();
+            ArrayList<CodageType> temp = new ArrayList<CodageType>();
+            temp.add(a);
+            GridPane grid = new GridPane();
+            int i = 0;
+            ArrayList<QCMPane> lQCM = new ArrayList<QCMPane>();
+            for (QCM q :QCMManager.getQCMAbout(temp)) {
+                QCMPane qp = new QCMPane(q);
+                grid.add(qp, 0, i);
+                lQCM.add(qp);
+                i++;
+            }
+            grid.add(validate, 0,i+1);
+            validate.setOnAction(event -> {
+                Profil current = ProfileManager.getCurrentProfile();
+                current.addMauvaiseReponse(a);
+                String reponse ="Incorrect !\nLes bonnes reponses sont  :";
+                boolean correct = true;
+                for (QCMPane qp  : lQCM){
+                    if (!qp.isBonneReponse()){
+                        current.addMauvaiseReponse(a);
+                        correct = false;
+                        reponse+="\n"+qp.getRightAnswer();
+                    }else {
+                        current.addBonneReponse(a);
+                    }
+                }
+
+                if (!correct){
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Exercice");
+                    alert.setContentText(reponse);
+                    alert.showAndWait();
+                }else{
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Exercice");
+                    alert.setContentText("Correct ! ");
+                    alert.showAndWait();
+                    stage2.close();
+                }
+                System.out.println();
+
+            });
+
+            ScrollPane sp = new ScrollPane();
+            sp.setContent(grid);
+            //Parent root = new QCMPane(qcm);
+            Scene scene = new Scene(sp);
+            stage2.setScene(scene);
+            stage2.show();
+
         });
         secondpane.getChildren().add(Ex1);
-        secondpane.getChildren().add(Ex3);
         secondpane.getChildren().add(Ex2);
+        secondpane.getChildren().add(Ex3);
     }
 }

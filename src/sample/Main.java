@@ -23,7 +23,7 @@ public class Main extends Application {
         QCM qcm = QCMManager.getQCMAbout(codage).get(0);
         Parent root = new QCMPane(qcm);
         */
-        Parent root = new ProfilePane(ProfileManager.getProfile("Julien"));
+        Parent root = new ProfilePane(ProfileManager.getProfile("Mouss"));
         primaryStage.setTitle("test qcm");
         primaryStage.setScene(new Scene(root, 1000, 500));
         primaryStage.show();

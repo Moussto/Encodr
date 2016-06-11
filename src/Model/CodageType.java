@@ -15,5 +15,6 @@ public enum CodageType {
     NRZI,
     MANCHESTER,
     MILLER,
-    RZ
+    RZ,
+    BIPOLAR
 }

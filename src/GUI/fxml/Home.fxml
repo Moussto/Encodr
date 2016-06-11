@@ -21,7 +21,7 @@
                 <Button fx:id="coursbutton" layoutX="69.0" layoutY="56.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Cours">
                 </Button>
                 <Button fx:id="exercisebutton" layoutX="316.0" layoutY="56.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Exercices" />
-            <Button fx:id="exercisebutton1" layoutX="69.0" layoutY="237.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Exercices" />
+            <Button fx:id="profilebutton" layoutX="69.0" layoutY="237.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Exercices" />
             </children>
         </Pane>
     </children>

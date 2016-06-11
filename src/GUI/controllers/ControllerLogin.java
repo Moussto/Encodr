@@ -63,7 +63,7 @@ public class ControllerLogin implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/Home.fxml"));
             Parent root = fxmlLoader.load();
             ControllerHome controller = fxmlLoader.getController();
-            controller.setLabelHome(logininput.getText());
+           // controller.setLabelHome(logininput.getText());
 
             //create a new scene with root and set the stage
             Scene scene = new Scene(root);
