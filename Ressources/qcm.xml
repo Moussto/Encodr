@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_91" class="java.beans.XMLDecoder">
+ <object class="Model.QCMContainer" id="QCMContainer0">
+  <void class="Model.QCMContainer" method="getField">
+   <string>qcm</string>
+   <void method="set">
+    <object idref="QCMContainer0"/>
+    <object class="java.util.HashMap">
+     <void method="put">
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <object class="java.lang.Enum" id="CodageType0" method="valueOf">
+         <class>Model.CodageType</class>
+         <string>NRZ</string>
+        </object>
+       </void>
+       <void method="add">
+        <object class="java.lang.Enum" id="CodageType1" method="valueOf">
+         <class>Model.CodageType</class>
+         <string>NRZI</string>
+        </object>
+       </void>
+      </object>
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <object class="Model.QCM">
+         <void property="indexBonneReponse">
+          <int>4</int>
+         </void>
+         <void property="question">
+          <string>Troisieme Question.</string>
+         </void>
+         <void property="reponses">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <string>reponse 1</string>
+           </void>
+           <void method="add">
+            <string>reponse 2</string>
+           </void>
+           <void method="add">
+            <string>reponse 3</string>
+           </void>
+           <void method="add">
+            <string>reponse 4</string>
+           </void>
+           <void method="add">
+            <string>reponse 5</string>
+           </void>
+          </object>
+         </void>
+         <void property="sujet">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <object idref="CodageType0"/>
+           </void>
+           <void method="add">
+            <object idref="CodageType1"/>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+      </object>
+     </void>
+     <void method="put">
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <object class="java.lang.Enum" id="CodageType2" method="valueOf">
+         <class>Model.CodageType</class>
+         <string>MANCHESTER</string>
+        </object>
+       </void>
+      </object>
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <object class="Model.QCM">
+         <void property="indexBonneReponse">
+          <int>2</int>
+         </void>
+         <void property="question">
+          <string>D&apos;où vient le nom du codage Manchester?</string>
+         </void>
+         <void property="reponses">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <string>42</string>
+           </void>
+           <void method="add">
+            <string>Obiwan Kenobi</string>
+           </void>
+           <void method="add">
+            <string>De la ville</string>
+           </void>
+           <void method="add">
+            <string>De Monsieur Manchester</string>
+           </void>
+           <void method="add">
+            <string>de Man chez Stère</string>
+           </void>
+           <void method="add">
+            <string>je n&apos;ai plus d&apos;idée...</string>
+           </void>
+          </object>
+         </void>
+         <void property="sujet">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <object idref="CodageType2"/>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+       <void method="add">
+        <object class="Model.QCM">
+         <void property="indexBonneReponse">
+          <int>0</int>
+         </void>
+         <void property="question">
+          <string>Deuxieme Question.</string>
+         </void>
+         <void property="reponses">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <string>reponse 1</string>
+           </void>
+           <void method="add">
+            <string>reponse 2</string>
+           </void>
+           <void method="add">
+            <string>reponse 3</string>
+           </void>
+           <void method="add">
+            <string>reponse 4</string>
+           </void>
+           <void method="add">
+            <string>reponse 5</string>
+           </void>
+          </object>
+         </void>
+         <void property="sujet">
+          <object class="java.util.ArrayList">
+           <void method="add">
+            <object idref="CodageType2"/>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+      </object>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

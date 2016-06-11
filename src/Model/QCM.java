@@ -50,4 +50,11 @@ public class QCM extends Exercice {
     public void setIndexBonneReponse(int indexBonneReponse) {
         this.indexBonneReponse = indexBonneReponse;
     }
+
+    public boolean isBonneReponse(String reponse) {
+        if(reponse.equals(reponses.get(indexBonneReponse))) {
+            return true;
+        }
+        return false;
+    }
 }

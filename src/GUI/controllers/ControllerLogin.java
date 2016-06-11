@@ -1,6 +1,8 @@
 package GUI.controllers;
 
 import GUI.Home;
+import Module.Profil;
+import Module.ProfileManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -51,6 +53,10 @@ public class ControllerLogin implements Initializable {
     @FXML
     private void handleButtonAction() throws IOException {
         if(!logininput.getText().isEmpty()){
+
+            Profil profil = ProfileManager.getProfile(logininput.getText());
+            ProfileManager.setCurrentProfile(profil);
+
             Stage stage;
             //get reference to the button's stage
             stage = (Stage) loginbutton.getScene().getWindow();

@@ -1,5 +1,7 @@
 package Module;
 
+import Model.CodageType;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,14 +11,47 @@ import java.util.Map;
  */
 public class Profil implements Serializable {
     private String email;
-    private Map<Integer, Integer> mapCourCompletion;
+    //private Map<Integer, Integer> mapCourCompletion;
+
+    private Map<CodageType, Integer> bonnesReponses;
+    private Map<CodageType, Integer> mauvaisesReponses;
 
     //element de gameification
     private int experience;
 
-    Profil(String email) {
+    public Profil(String email) {
         this.email = email;
-        mapCourCompletion = new HashMap<>();
+        //mapCourCompletion = new HashMap<>();
+        bonnesReponses = new HashMap<>();
+        mauvaisesReponses = new HashMap<>();
+
+        for(CodageType c : CodageType.values()) {
+            bonnesReponses.put(c, 0);
+            mauvaisesReponses.put(c, 0);
+        }
+    }
+
+    public void addBonneReponse(CodageType c) {
+        Integer integer = bonnesReponses.get(c);
+        integer++;
+
+        experience += 100;
+    }
+
+    public void addMauvaiseReponse(CodageType c) {
+        Integer integer = mauvaisesReponses.get(c);
+        integer++;
+
+        experience += 15;
+    }
+
+    public float getRatioBonneMauvaiseReponse(CodageType c) {
+        Integer br = bonnesReponses.get(c);
+        Integer mr = mauvaisesReponses.get(c);
+
+        if(mr.equals(0))
+            return -1;
+        return br / mr;
     }
 
     public String getEmail() {
@@ -27,13 +62,29 @@ public class Profil implements Serializable {
         this.email = email;
     }
 
-    public Map<Integer, Integer> getMapCourCompletion() {
-        return mapCourCompletion;
+    public Map<CodageType, Integer> getMauvaisesReponses() {
+        return mauvaisesReponses;
     }
 
-    public void setMapCourCompletion(Map<Integer, Integer> mapCourCompletion) {
-        this.mapCourCompletion = mapCourCompletion;
+    public void setMauvaisesReponses(Map<CodageType, Integer> mauvaisesReponses) {
+        this.mauvaisesReponses = mauvaisesReponses;
     }
+
+    public Map<CodageType, Integer> getBonnesReponses() {
+        return bonnesReponses;
+    }
+
+    public void setBonnesReponses(Map<CodageType, Integer> bonnesReponses) {
+        this.bonnesReponses = bonnesReponses;
+    }
+
+    /*public Map<Integer, Integer> getMapCourCompletion() {
+        return mapCourCompletion;
+    }*/
+
+    /*public void setMapCourCompletion(Map<Integer, Integer> mapCourCompletion) {
+        this.mapCourCompletion = mapCourCompletion;
+    }*/
 
     public int getExperience() {
         return experience;

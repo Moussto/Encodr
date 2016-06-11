@@ -8,19 +8,38 @@ import java.util.HashMap;
  */
 
 public class ProfileManager implements Serializable {
-    private static String saveFilename = "profiles.prf";
+    private static String saveFilename = "Ressources/profiles.prf";
     private static HashMap<String, Profil> profiles = load(saveFilename);
+    private static Profil currentProfile = null;
 
     public static HashMap<String, Profil> getProfiles() {
         return profiles;
     }
 
+    private static Profil createAndAddNewProfile(String login)
+    {
+        Profil profil = new Profil(login);
+        profiles.put(login, profil);
+        return profil;
+    }
+
+    public static Profil getCurrentProfile() {
+        return currentProfile;
+    }
+
+    public static void setCurrentProfile(Profil currentProfile) {
+        ProfileManager.currentProfile = currentProfile;
+    }
+
     public static Profil getProfile(String login) {
         if(profiles == null) {
             profiles = new HashMap<>();
-            return null;
+            return createAndAddNewProfile(login);
         }
-        return profiles.get(login);
+        Profil p = profiles.get(login);
+        if(p != null)
+            return p;
+        return createAndAddNewProfile(login);
     }
 
     public static void addProfile(Profil profil) {
@@ -30,11 +49,12 @@ public class ProfileManager implements Serializable {
         profiles.put(profil.getEmail(), profil);
     }
 
-    public static void save(String filename) {
+    public static void save() {
+
         ObjectOutputStream oos = null;
 
         try {
-            final FileOutputStream file = new FileOutputStream(filename);
+            final FileOutputStream file = new FileOutputStream(saveFilename);
             oos = new ObjectOutputStream(file);
             oos.writeObject(profiles);
         } catch (final java.io.IOException e) {
