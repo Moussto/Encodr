@@ -64,4 +64,6 @@ public class VoltageChart extends LineChart<Double, Integer> {
     public void clearSeries() {
         stateSeries.clear();
     }
+
+
 }
