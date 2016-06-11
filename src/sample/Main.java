@@ -3,6 +3,8 @@ package sample;
 import Model.CodageType;
 import Model.QCM;
 import Model.QCMManager;
+import Module.ProfileManager;
+import Vue.ProfilePane;
 import Vue.QCMPane;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -15,10 +17,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        /*
         ArrayList<CodageType> codage = new ArrayList<>();
         codage.add(CodageType.MANCHESTER);
         QCM qcm = QCMManager.getQCMAbout(codage).get(0);
         Parent root = new QCMPane(qcm);
+        */
+        Parent root = new ProfilePane(ProfileManager.getProfile("Julien"));
         primaryStage.setTitle("test qcm");
         primaryStage.setScene(new Scene(root, 1000, 500));
         primaryStage.show();
