@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
@@ -26,13 +27,19 @@ public class ControllerHome implements Initializable {
 
     @FXML //  fx:id="coursbutton"
     private Label labelHome;
-    private static String label;
+
 
     @FXML //  fx:id="exercisebutton"
     private Button exercisebutton;
 
     @FXML //  fx:id="profilebutton"
     private Button profilebutton;
+
+    @FXML //  fx:id="progressindicator"
+    private ProgressIndicator progressindicator;
+
+    @FXML //  fx:id="labelNiveau"
+    private Label labelNiveau;
 
 
 
@@ -42,7 +49,9 @@ public class ControllerHome implements Initializable {
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
 
         Profil current = ProfileManager.getCurrentProfile();
-        labelHome.setText(current.getEmail());
+        labelHome.setText("Salut "+current.getEmail()+" !");
+        labelNiveau.setText(current.getNiveau());
+        progressindicator.setProgress((current.getExperience() % 1000) / 1000.0);
 
         coursbutton.setOnAction(event -> {
             Stage stage;
