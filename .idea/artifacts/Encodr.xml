@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Encodr">
+    <output-path>$PROJECT_DIR$/out/artifacts/Encodr</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="GUI.Main" />
+        <option name="description" value="" />
+        <option name="htmlParamFile" value="" />
+        <option name="paramFile" value="" />
+        <option name="title" value="fdg" />
+        <option name="vendor" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Encodr.jar">
+        <element id="module-output" name="Encodr" />
+      </element>
+    </root>
+  </artifact>
+</component>

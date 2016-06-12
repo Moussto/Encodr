@@ -39,7 +39,7 @@ public final class XMLTools {
     public static Object decodeFromFile(String fileName) throws FileNotFoundException, IOException {
         Object object = null;
         // ouverture de decodeur
-        XMLDecoder decoder = new XMLDecoder(new FileInputStream(fileName));
+        XMLDecoder decoder = new XMLDecoder(XMLTools.class.getResourceAsStream("/Ressources/"+fileName));
         try {
             // deserialisation de l'objet
             object = decoder.readObject();

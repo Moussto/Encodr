@@ -1,6 +1,10 @@
 package Module;
 
+import sun.nio.ch.FileKey;
+
 import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.HashMap;
 
 /**
@@ -8,7 +12,7 @@ import java.util.HashMap;
  */
 
 public class ProfileManager implements Serializable {
-    private static String saveFilename = "Ressources/profiles.prf";
+    private static String saveFilename = "./Ressources/profiles.prf";
     private static HashMap<String, Profil> profiles = load(saveFilename);
     private static Profil currentProfile = null;
 
@@ -54,6 +58,7 @@ public class ProfileManager implements Serializable {
         ObjectOutputStream oos = null;
 
         try {
+
             final FileOutputStream file = new FileOutputStream(saveFilename);
             oos = new ObjectOutputStream(file);
             oos.writeObject(profiles);
@@ -76,7 +81,8 @@ public class ProfileManager implements Serializable {
         profiles = null;
 
         try {
-            final FileInputStream file = new FileInputStream(filename);
+         //   final InputStream file = ProfileManager.class.getResourceAsStream("./Ressources/profiles.prf");
+            final FileInputStream file = new FileInputStream(saveFilename);
             ois = new ObjectInputStream(file);
             profiles = (HashMap<String, Profil>) ois.readObject();
         } catch (final java.io.IOException e) {

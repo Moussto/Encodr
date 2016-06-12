@@ -58,7 +58,7 @@ public class ControllerHome implements Initializable {
             Parent root;
             stage= (Stage) coursbutton.getScene().getWindow();
             try {
-                root =  FXMLLoader.load(getClass().getResource("../fxml/CoursList.fxml"));
+                root =  FXMLLoader.load(getClass().getResource("/GUI/fxml/CoursList.fxml"));
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
@@ -74,7 +74,7 @@ public class ControllerHome implements Initializable {
             Parent root;
             stage= (Stage) exercisebutton.getScene().getWindow();
             try {
-                root =  FXMLLoader.load(getClass().getResource("../fxml/Exercise.fxml"));
+                root =  FXMLLoader.load(getClass().getResource("/GUI/fxml/Exercise.fxml"));
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();

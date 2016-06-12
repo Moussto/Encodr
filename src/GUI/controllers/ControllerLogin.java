@@ -60,7 +60,8 @@ public class ControllerLogin implements Initializable {
             Stage stage;
             //get reference to the button's stage
             stage = (Stage) loginbutton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/Home.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/fxml/Home.fxml"));
+            System.out.println(getClass().getResource("/GUI/fxml/Home.fxml"));
             Parent root = fxmlLoader.load();
             ControllerHome controller = fxmlLoader.getController();
            // controller.setLabelHome(logininput.getText());

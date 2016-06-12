@@ -69,7 +69,7 @@ public class EncodingExercise {
         voltageChart.updateChart();
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../GUI/fxml/EncodingExercise.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/fxml/EncodingExercise.fxml"));
         Parent root = fxmlLoader.load();
         ControllerEncodingExercise controller = fxmlLoader.getController();
         StackPane upperpane = controller.getUpperpanel();

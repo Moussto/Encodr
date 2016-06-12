@@ -57,35 +57,35 @@ public class ControllerCoursList {
             String selected = ListCourse.getSelectionModel().getSelectedItem();
             switch (selected) {
                 case "Non Return to Zero (NRZ)":{
-                    URL url = getClass().getResource("../../html/nrz.html");
+                    URL url = getClass().getResource("/html/nrz.html");
                     System.out.println(url);
                     WebEngine webEngine = Webview.getEngine();
                     webEngine.load(url.toExternalForm());
                     break;
                 }
                 case "Non Return to Zero-Inversed (NRZi)":{
-                    URL url = getClass().getResource("../../html/nrzi.html");
+                    URL url = getClass().getResource("/html/nrzi.html");
                     WebEngine webEngine = Webview.getEngine();
                     webEngine.load(url.toExternalForm());
                     System.out.println("NRZi");
                     break;
                 }
                 case "Bipolaire":{
-                    URL url = getClass().getResource("../../html/bipol.html");
+                    URL url = getClass().getResource("/html/bipol.html");
                     WebEngine webEngine = Webview.getEngine();
                     webEngine.load(url.toExternalForm());
                     System.out.println("Bipolaire");
                     break;
                 }
                 case "Manchester":{
-                    URL url = getClass().getResource("../../html/manchester.html");
+                    URL url = getClass().getResource("/html/manchester.html");
                     WebEngine webEngine = Webview.getEngine();
                     webEngine.load(url.toExternalForm());
                     System.out.println("Manchester");
                     break;
                 }
                 default:{
-                    URL url = getClass().getResource("../../html/nrz.html");
+                    URL url = getClass().getResource("/html/nrz.html");
                     System.out.println(url);
                     WebEngine webEngine = Webview.getEngine();
                     webEngine.load(url.toExternalForm());
@@ -103,7 +103,7 @@ public class ControllerCoursList {
             Stage stage;
             //get reference to the button's stage
             stage = (Stage) retourbutton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/Home.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/fxml/Home.fxml"));
             Parent root = fxmlLoader.load();
             ControllerHome controller = fxmlLoader.getController();
             //create a new scene with root and set the stage

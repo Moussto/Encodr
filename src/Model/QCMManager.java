@@ -11,7 +11,7 @@ import java.util.Map;
  * Created by falcon on 6/9/16.
  */
 public class QCMManager {
-    private static String saveFilename = "Ressources/qcm.xml";
+    private static String saveFilename = "qcm.xml";
     public static QCMContainer container = new QCMContainer();
 
 

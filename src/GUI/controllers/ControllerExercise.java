@@ -101,7 +101,7 @@ public class ControllerExercise implements Initializable {
     private void handleButtonAction() throws IOException {
         //get reference to the button's stage
         Stage stage = (Stage) retourbutton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/Home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUI/fxml/Home.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -170,6 +170,7 @@ public class ControllerExercise implements Initializable {
                 String reponse ="Incorrect !\nLes bonnes reponses sont  :";
                 boolean correct = true;
                 for (QCMPane qp  : lQCM){
+                    qp.correctionColor();
                     if (!qp.isBonneReponse()){
                         current.addMauvaiseReponse(a);
                         correct = false;
@@ -193,6 +194,7 @@ public class ControllerExercise implements Initializable {
                     alert.showAndWait();
                     stage2.close();
                 }
+                validate.setDisable(true);
                 System.out.println();
 
             });
