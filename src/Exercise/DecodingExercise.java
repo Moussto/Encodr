@@ -211,6 +211,7 @@ public class DecodingExercise {
                     Boolean error = false;
                     String text = inputuser.getText();
                     if (text.length() < sequence.length()) {
+                        error = true;
                         current.addMauvaiseReponse(Encoding);
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Information Exercice");
@@ -246,16 +247,18 @@ public class DecodingExercise {
                         } else {
                             // Generateur doit analyser la reponse et aider le pelo
                             if (!text.isEmpty()) handleerror(text);
+                            sp2.getChildren().addAll(new Label("La sequence "+text+" est incorrect"));
                         }
                     }
 
                     // clear text
-                    inputuser.setText("");
+                    inputuser.setDisable(true);
+                    inputuser.setVisible(false);
                 }
             }
         });
 
-        sp2.getChildren().addAll(new Label("Veuillez"));
+
         sp2.getChildren().addAll(inputuser);
 
 

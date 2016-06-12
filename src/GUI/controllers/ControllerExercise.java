@@ -68,7 +68,7 @@ public class ControllerExercise implements Initializable {
         });
 
         ObservableList<String> items = FXCollections.observableArrayList(
-                "Non Return to Zero (NRZ)", "Non Return to Zero-Inversed (NRZi)", "Bipolaire", "Manchester");
+                "Non Return to Zero (NRZ)", "Non Return to Zero-Inversed (NRZi)", "Bipolaire");
         ListCourse.setItems(items);
         ListCourse.setOnMouseClicked(event -> {
             String selected = ListCourse.getSelectionModel().getSelectedItem();
