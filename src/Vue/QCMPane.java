@@ -2,11 +2,10 @@ package Vue;
 
 import Model.QCM;
 import javafx.geometry.Insets;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -22,11 +21,13 @@ public class QCMPane extends GridPane {
     private static int maxResponse = 5;
     private QCM qcm;
     private List<RadioButton> buttons;
+    private List<Pane> buttonPane;
 
 
     public QCMPane(QCM qcm) {
         super();
         buttons = new ArrayList<>();
+        buttonPane = new ArrayList<>();
         this.qcm = qcm;
         init();
     }
@@ -68,17 +69,35 @@ public class QCMPane extends GridPane {
         //les reponses
         ToggleGroup group = new ToggleGroup();
         RadioButton button;
+        Pane pane;
         List<String> choix = setChoices();
         int index = 1;
         for(String s : choix) {
+            pane = new Pane();
             button = new RadioButton(s);
             button.setToggleGroup(group);
-            this.add(button, 0, index);
+            pane.getChildren().add(button);
+            this.add(pane, 0, index);
             buttons.add(button);
+            buttonPane.add(pane);
             index++;
         }
 
 
+    }
+
+    public void correctionColor() {
+        for(Pane p : buttonPane) {
+            RadioButton b = (RadioButton) p.getChildren().get(0);
+            if(b.isSelected()) {
+                if(qcm.isBonneReponse(b.getText()))
+                    p.setStyle("-fx-background-color: chartreuse");
+                else p.setStyle("-fx-background-color: red");
+            }
+            else if (qcm.isBonneReponse(b.getText())){
+                p.setStyle("-fx-background-color: chartreuse");
+            }
+        }
     }
 
     public boolean isBonneReponse() {
