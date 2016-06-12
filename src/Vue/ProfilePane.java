@@ -58,33 +58,37 @@ public class ProfilePane extends GridPane {
         Text etat;
         for(CodageType c : CodageType.values()) {
             float ratio = profil.getRatioBonneMauvaiseReponse(c);
-            if(ratio < 0) {
+            int nbReponse = profil.getNbReponse(c);
+            if(nbReponse == 0) {
                 etat = new Text("Non étudié");
+                etat.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
+            } else if(nbReponse < 5) {
+                etat = new Text("En cour d'aquisition...");
                 etat.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
             } else if(ratio < 0.6) {
                 etat = new Text("Très fragile");
                 etat.setFont(Font.font("Arial", FontWeight.SEMI_BOLD, 14));
                 etat.setFill(Color.DARKRED);
-            } else if(ratio < 0.9) {
+            } else if(ratio < 1.2) {
                 etat = new Text("fragile");
                 etat.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
                 etat.setFill(Color.ORANGERED);
-            } else if(ratio < 1.1) {
+            } else if(ratio < 1.6) {
                 etat = new Text("Moyenne");
                 etat.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
                 etat.setFill(Color.ORANGE);
-            } else if(ratio < 1.5) {
+            } else if(ratio < 2) {
                 etat = new Text("Bonne");
                 etat.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
                 etat.setFill(Color.GREENYELLOW);
-            } else if(ratio < 1.8) {
+            } else if(ratio < 2.6) {
                 etat = new Text("Très bonne");
                 etat.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
-                etat.setFill(Color.GREEN);
+                etat.setFill(Color.LIGHTGREEN);
             } else {
                 etat = new Text("Maitrisée");
                 etat.setFont(Font.font("Arial", FontWeight.SEMI_BOLD, 14));
-                etat.setFill(Color.LIGHTGREEN);
+                etat.setFill(Color.GREEN);
             }
             this.add(etat, 1, index);
             index++;

@@ -48,13 +48,29 @@ public class Profil implements Serializable {
         experience += 15;
     }
 
+    public int getNbBonneReponse(CodageType c) {
+        return bonnesReponses.get(c);
+    }
+
+    public int getNbMauvaisseReponse(CodageType c) {
+        return mauvaisesReponses.get(c);
+    }
+
+    public int getNbReponse(CodageType c) {
+        return getNbBonneReponse(c) + getNbMauvaisseReponse(c);
+    }
+
     public float getRatioBonneMauvaiseReponse(CodageType c) {
         Integer br = bonnesReponses.get(c);
         Integer mr = mauvaisesReponses.get(c);
 
-        if(mr.equals(0))
-            return -1;
-        return br / mr;
+        if(mr.equals(0)) {
+            if(br.equals(0)) {
+                return -1;
+            }
+            return br / 1;
+        }
+        return  br / mr;
     }
 
     public String getEmail() {
