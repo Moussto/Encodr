@@ -13,16 +13,21 @@
     </columnConstraints>
     <rowConstraints>
         <RowConstraints />
+      <RowConstraints />
     </rowConstraints>
     <children>
-        <Pane prefHeight="439.0" prefWidth="591.0">
+        <Pane prefHeight="432.0" prefWidth="591.0" GridPane.rowIndex="1">
             <children>
-                <Label fx:id="labelHome" layoutX="272.0" layoutY="33.0" text="Login" />
                 <Button fx:id="coursbutton" layoutX="69.0" layoutY="104.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Cours">
                 </Button>
                 <Button fx:id="exercisebutton" layoutX="311.0" layoutY="104.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Exercices" />
             <Button fx:id="profilebutton" layoutX="182.0" layoutY="291.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="197.0" text="Profil" />
             </children>
         </Pane>
+      <Pane prefHeight="37.0" prefWidth="591.0">
+         <children>
+                <Label fx:id="labelHome" layoutX="23.0" layoutY="10.0" text="Login" />
+         </children>
+      </Pane>
     </children>
 </GridPane>

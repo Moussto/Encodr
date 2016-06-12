@@ -35,7 +35,7 @@ public class Profil implements Serializable {
         //Finalement c'est pas des references les integer :/
         /*Integer integer = bonnesReponses.get(c);
         integer++;*/
-        mauvaisesReponses.put(c, mauvaisesReponses.get(c) - 1);
+        bonnesReponses.put(c, bonnesReponses.get(c) + 1);
 
         experience += 100;
     }
