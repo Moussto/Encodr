@@ -95,7 +95,7 @@ public class ProfilePane extends GridPane {
         xp_text.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         this.add(xp_text, 2, 0);
 
-        xp_progressBar.setProgress((profil.getExperience() % 1000) / 1000);
+        xp_progressBar.setProgress((profil.getExperience() % 1000) / 1000.0);
         this.add(xp_progressBar, 2, 1);
     }
 

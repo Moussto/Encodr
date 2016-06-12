@@ -32,15 +32,18 @@ public class Profil implements Serializable {
     }
 
     public void addBonneReponse(CodageType c) {
-        Integer integer = bonnesReponses.get(c);
-        integer++;
+        //Finalement c'est pas des references les integer :/
+        /*Integer integer = bonnesReponses.get(c);
+        integer++;*/
+        mauvaisesReponses.put(c, mauvaisesReponses.get(c) - 1);
 
         experience += 100;
     }
 
     public void addMauvaiseReponse(CodageType c) {
-        Integer integer = mauvaisesReponses.get(c);
-        integer++;
+        /*Integer integer = mauvaisesReponses.get(c);
+        integer++;*/
+        mauvaisesReponses.put(c, mauvaisesReponses.get(c) + 1);
 
         experience += 15;
     }

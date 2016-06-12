@@ -2,6 +2,8 @@ package Exercise;
 
 import Model.CodageType;
 import Module.Generateur;
+import Module.Profil;
+import Module.ProfileManager;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
@@ -135,6 +137,27 @@ public class DecodingExercise {
           Stage stage = new Stage();
          EncodingTechnique = encodingtech;
 
+         //same as above due to shitty preparation
+         CodageType Encoding;
+         switch (encodingtech) {
+             case "NRZ":
+                 Encoding = CodageType.NRZ;
+                 break;
+             case "NRZI":
+                 Encoding = CodageType.NRZI;
+                 break;
+             case "BIPOLAR":
+                 Encoding = CodageType.BIPOLAR;
+                 break;
+             case "MANCHESTER":
+                 Encoding = CodageType.MANCHESTER;
+                 break;
+             default:
+                 Encoding = CodageType.NRZ;
+
+         }
+
+
         yAxis.setLabel("Voltage");
 
 
@@ -183,9 +206,12 @@ public class DecodingExercise {
             @Override
             public void handle(KeyEvent keyEvent) {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
+                    Profil current = ProfileManager.getCurrentProfile();
+
                     Boolean error = false;
                     String text = inputuser.getText();
                     if (text.length() < sequence.length()) {
+                        current.addMauvaiseReponse(Encoding);
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Information Exercice");
                         alert.setContentText("Il faut entrez plus de nombres");
@@ -210,6 +236,8 @@ public class DecodingExercise {
 
                     if (!error){
                         if (sequence.equals(text)) {
+                            current.addBonneReponse(Encoding);
+
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             alert.setTitle("Information Exercice");
                             alert.setContentText("Felicitations ! ");

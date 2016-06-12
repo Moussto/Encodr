@@ -150,7 +150,6 @@ public class ControllerExercise implements Initializable {
             grid.add(validate, 0,i+1);
             validate.setOnAction(event -> {
                 Profil current = ProfileManager.getCurrentProfile();
-                current.addMauvaiseReponse(a);
                 String reponse ="Incorrect !\nLes bonnes reponses sont  :";
                 boolean correct = true;
                 for (QCMPane qp  : lQCM){
