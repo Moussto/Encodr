@@ -41,12 +41,24 @@ public class ControllerExercise implements Initializable {
     private Button retourbutton;
 
     @FXML
+    private Button QCMbutton;
+
+    @FXML
+    private Button DecodingButton;
+
+    @FXML
+    private Button EncodingButton;
+
+    @FXML
     private Pane secondpane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         assert ListCourse != null : "fx:id=\"ListCourse\" was not injected: check your FXML file 'Exercise.fxml'.";
         assert retourbutton != null : "fx:id=\"retourbutton\" was not injected: check your FXML file 'Exercise.fxml'.";
+        QCMbutton.setVisible(false);
+        DecodingButton.setVisible(false);
+        EncodingButton.setVisible(false);
         retourbutton.setOnAction(event -> {
             try {
                 handleButtonAction();
@@ -97,14 +109,19 @@ public class ControllerExercise implements Initializable {
     }
 
     private void createExercise(String selected) {
-        secondpane.getChildren().clear();
+        QCMbutton.setVisible(true);
+        DecodingButton.setVisible(true);
+        EncodingButton.setVisible(true);
+      // secondpane.getChildren().clear();
         Button Ex1 = new Button("Exercice de decodage de signal " + selected);
-        Ex1.setOnAction(eventbut -> {
+        DecodingButton.setText("Exercice de decodage de signal " + selected);
+        DecodingButton.setOnAction(eventbut -> {
             new DecodingExercise(selected);
         });
 
         Button Ex2 = new Button("Exercice d'encodage " + selected);
-        Ex2.setOnAction(eventbut -> {
+        EncodingButton.setText("Exercice d'encodage " + selected);
+        EncodingButton.setOnAction(eventbut -> {
             try {
                 new EncodingExercise(selected);
             } catch (IOException e) {
@@ -112,8 +129,8 @@ public class ControllerExercise implements Initializable {
             }
         });
         Button Ex3 = new Button("QCM Sur " + selected);
-
-        Ex3.setOnAction(eventbut -> {
+        QCMbutton.setText("QCM Sur " + selected);
+        QCMbutton.setOnAction(eventbut -> {
             CodageType a;
 
 
@@ -188,8 +205,8 @@ public class ControllerExercise implements Initializable {
             stage2.show();
 
         });
-        secondpane.getChildren().add(Ex1);
-        secondpane.getChildren().add(Ex2);
-        secondpane.getChildren().add(Ex3);
+      //  secondpane.getChildren().add(Ex1);
+        //secondpane.getChildren().add(Ex2);
+        //secondpane.getChildren().add(Ex3);
     }
 }
