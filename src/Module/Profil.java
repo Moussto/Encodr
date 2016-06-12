@@ -157,4 +157,8 @@ public class Profil implements Serializable {
         }
         return profil;
     }
+
+    public String getNiveau(){
+        return "LvL: " + (this.getExperience() / 1000 + 1);
+    }
 }
