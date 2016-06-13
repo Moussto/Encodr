@@ -63,14 +63,14 @@ public class ProfilePane extends GridPane {
                 etat = new Text("Non étudié");
                 etat.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
             } else if(nbReponse < 5) {
-                etat = new Text("En cour d'aquisition...");
+                etat = new Text("En cours d'aquisition...");
                 etat.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
             } else if(ratio < 0.6) {
                 etat = new Text("Très fragile");
                 etat.setFont(Font.font("Arial", FontWeight.SEMI_BOLD, 14));
                 etat.setFill(Color.DARKRED);
             } else if(ratio < 1.2) {
-                etat = new Text("fragile");
+                etat = new Text("Fragile");
                 etat.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
                 etat.setFill(Color.ORANGERED);
             } else if(ratio < 1.6) {

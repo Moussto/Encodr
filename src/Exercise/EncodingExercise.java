@@ -5,6 +5,8 @@ import GUI.controllers.ControllerHome;
 import Model.CodageType;
 import Model.VoltageState;
 import Module.Generateur;
+import Module.Profil;
+import Module.ProfileManager;
 import Vue.EditableVoltageChart;
 import Vue.VoltageChart;
 import javafx.collections.ObservableList;
@@ -49,6 +51,25 @@ public class EncodingExercise {
 
     public EncodingExercise(String encodingTech) throws IOException {
         EncodingTechnique = encodingTech;
+
+        CodageType Encoding;
+        switch (EncodingTechnique) {
+            case "NRZ":
+                Encoding = CodageType.NRZ;
+                break;
+            case "NRZI":
+                Encoding = CodageType.NRZI;
+                break;
+            case "BIPOLAR":
+                Encoding = CodageType.BIPOLAR;
+                break;
+            case "MANCHESTER":
+                Encoding = CodageType.MANCHESTER;
+                break;
+            default:
+                Encoding = CodageType.NRZ;
+
+        }
         yAxis.setTickUnit(1);
         yAxis.setLowerBound(-2);
         yAxis.setUpperBound(2);
@@ -104,10 +125,12 @@ public class EncodingExercise {
 
         validate.setOnAction(event -> {
             XYChart.Series inputseries = CreateSeriesFromStates(voltageChart.getStateSeries().get(0));
+            Profil current = ProfileManager.getCurrentProfile();
 
             if (correctserie.getData().equals(inputseries.getData())) System.out.println("yo");
             else System.out.println("damn");
             if (compareSeries(inputseries, correctserie)) {
+                current.addBonneReponse(Encoding);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Exercice");
                 alert.setContentText("Correct ! ");
@@ -115,6 +138,7 @@ public class EncodingExercise {
                 stage.close();
 
             } else {
+                current.addMauvaiseReponse(Encoding);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Exercice");
                 alert.setContentText("Incorrect ! ");
